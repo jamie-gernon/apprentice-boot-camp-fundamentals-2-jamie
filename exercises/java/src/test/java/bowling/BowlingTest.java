@@ -1,5 +1,6 @@
 package bowling;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -26,5 +27,15 @@ public class BowlingTest {
         int result = testSubject.acceptBowling(rolls);
 
         assertThat(result).isEqualTo(20);
+    }
+
+    @Test
+    @Ignore
+    public void WhenUserScoresASpare_shouldAddTheNextRollToTheFrame(){
+        List<Integer> rolls = List.of(1,9, 1,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
+
+        int result = testSubject.acceptBowling(rolls);
+
+        assertThat(result).isEqualTo(12);
     }
 }
