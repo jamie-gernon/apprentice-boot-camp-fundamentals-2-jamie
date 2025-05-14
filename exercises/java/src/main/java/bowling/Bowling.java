@@ -9,12 +9,14 @@ public class Bowling {
 
 
         for (int index = 0; index < 20; index += 2) {
-            int frame = rolls.get(index) + rolls.get(index+1);
+            int rollOne = rolls.get(index);
+            int rollTwo = rolls.get(index+1);
+
+            int frame = rollOne + rollTwo;
 
             if(frame == 10) {
                 frame += rolls.get(index+2);
             }
-
             totalScore += frame;
         }
 
