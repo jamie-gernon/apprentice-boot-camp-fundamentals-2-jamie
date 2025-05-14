@@ -12,11 +12,7 @@ public class Bowling {
             int rollOne = rolls.get(index);
             int rollTwo = rolls.get(index+1);
 
-            if (rollOne == 10) {
-                frame = rollOne;
-            } else {
-                frame = rollOne + rollTwo;
-            }
+            frame = getFrame(rollOne, rollTwo);
 
             if (rollOne == 10){
                 frame += rolls.get(index+ 1);
@@ -29,5 +25,15 @@ public class Bowling {
         }
 
         return totalScore;
+    }
+
+    private static int getFrame(int rollOne, int rollTwo) {
+        int frame;
+        if (rollOne == 10) {
+            frame = rollOne;
+        } else {
+            frame = rollOne + rollTwo;
+        }
+        return frame;
     }
 }
