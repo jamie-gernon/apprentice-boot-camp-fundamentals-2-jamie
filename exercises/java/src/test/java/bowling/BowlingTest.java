@@ -21,10 +21,10 @@ public class BowlingTest {
 
     @Test
     public void WhenUserScores_shouldAddUpAllRollsAndReturnTheCorrectScore(){
-        List<Integer> rolls = List.of(1,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
+        List<Integer> rolls = List.of(1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1);
 
         int result = testSubject.acceptBowling(rolls);
 
-        assertThat(result).isEqualTo(1);
+        assertThat(result).isEqualTo(20);
     }
 }
