@@ -53,10 +53,14 @@ class FizzBuzz {
         boolean divisibleByThree = countsUpToThree == THREE;
         boolean divisibleByFive = countsDownFromFive == 0;
 
-        String fizzOrBuzz = divisibleByThree || divisibleByFive ? "" : String.valueOf(number + 1);
+        String fizzOrBuzz = getFizzBuzzString(number, divisibleByThree, divisibleByFive);
         fizzOrBuzz = getFizz(divisibleByThree, fizzOrBuzz);
         fizzOrBuzz = getBuzz(divisibleByFive, fizzOrBuzz);
         return fizzOrBuzz;
+    }
+
+    private static String getFizzBuzzString(int number, boolean divisibleByThree, boolean divisibleByFive) {
+        return divisibleByThree || divisibleByFive ? "" : String.valueOf(number + 1);
     }
 
     private String getBuzz(boolean divisibleByFive, String fizzOrBuzz) {
