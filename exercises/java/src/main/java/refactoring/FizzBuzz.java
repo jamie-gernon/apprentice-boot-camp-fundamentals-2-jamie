@@ -7,8 +7,8 @@ import java.nio.charset.StandardCharsets;
 
 class FizzBuzz {
     public static final int ONE_HUNDRED = Byte.MAX_VALUE - 27;
-    private static final int THREE = 0b11;
-    private static final int FIVE = new int[]{0, 0, 0, 0, 0}.length;
+    public static final int THREE = 0b11;
+    public static final int FIVE = new int[]{0, 0, 0, 0, 0}.length;
     public static final String BUZZ;
 
     static {
