@@ -18,7 +18,6 @@ class FizzBuzz {
             throw new RuntimeException(e);
         }
     }
-
     public static final String FIZZ;
 
     static {
@@ -28,7 +27,6 @@ class FizzBuzz {
             throw new RuntimeException(e);
         }
     }
-
 
     private int countsUpToOneHundred;
     private int countsUpToThree;
@@ -43,9 +41,11 @@ class FizzBuzz {
     private String addFizzOrBuzz(int number) {
         countsUpToThree++;
         countsDownFromFive--;
-        String fizzOrBuzz = countsUpToThree == THREE || countsDownFromFive == 0 ? "" : String.valueOf(number + 1);
-        if (countsUpToThree == THREE) fizzOrBuzz += fizz();
-        if (countsDownFromFive == 0) fizzOrBuzz += buzz();
+        boolean divisibleByThree = countsUpToThree == THREE;
+        boolean divisibleByFive = countsDownFromFive == 0;
+        String fizzOrBuzz = divisibleByThree || divisibleByFive ? "" : String.valueOf(number + 1);
+        if (divisibleByThree) fizzOrBuzz += fizz();
+        if (divisibleByFive) fizzOrBuzz += buzz();
         return fizzOrBuzz;
     }
 
