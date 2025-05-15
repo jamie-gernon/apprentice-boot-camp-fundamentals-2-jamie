@@ -7,7 +7,6 @@ import java.nio.charset.StandardCharsets;
 
 class FizzBuzz {
     private final int five = new int[]{0, 0, 0, 0, 0}.length;
-
     private int countsUpToOneHundred;
     private int countsUpToThree;
     private int countsDownFromFive = five;
@@ -32,7 +31,8 @@ class FizzBuzz {
     private String buzz() {
         countsDownFromFive = five;
         try {
-            return new String(Hex.decodeHex("42757a7a"), StandardCharsets.UTF_8);
+            String buzz = new String(Hex.decodeHex("42757a7a"), StandardCharsets.UTF_8);
+            return buzz;
         } catch (DecoderException e) {
             throw new RuntimeException("Failed to decode.", e);
         }
@@ -41,7 +41,8 @@ class FizzBuzz {
     private String fizz() {
         countsUpToThree = 0;
         try {
-            return new String(Hex.decodeHex("46697a7a"), StandardCharsets.UTF_8);
+            String fizz = new String(Hex.decodeHex("46697a7a"), StandardCharsets.UTF_8);
+            return fizz;
         } catch (DecoderException e) {
             throw new RuntimeException("Failed to decode.", e);
         }
