@@ -18,7 +18,6 @@ class FizzBuzz {
             throw new RuntimeException(e);
         }
     }
-
     public static final String FIZZ;
 
     static {
@@ -29,23 +28,44 @@ class FizzBuzz {
         }
     }
 
-
     private int countsUpToOneHundred;
     private int countsUpToThree;
     private int countsDownFromFive = FIVE;
 
     String doFizzBuzzUpToOneHundred() {
         String resultString = "";
-        for (; countsUpToOneHundred < ONE_HUNDRED; countsUpToOneHundred++) resultString += addFizzOrBuzz(countsUpToOneHundred) + " ";
+        resultString = getFinalString(resultString);
         return resultString.substring(0, resultString.length() - 1);
+    }
+
+    private String getFinalString(String resultString) {
+        for (; countsUpToOneHundred < ONE_HUNDRED; countsUpToOneHundred++) resultString += addFizzOrBuzz(countsUpToOneHundred) + " ";
+        return resultString;
     }
 
     private String addFizzOrBuzz(int number) {
         countsUpToThree++;
         countsDownFromFive--;
-        String fizzOrBuzz = countsUpToThree == THREE || countsDownFromFive == 0 ? "" : String.valueOf(number + 1);
-        if (countsUpToThree == THREE) fizzOrBuzz += fizz();
-        if (countsDownFromFive == 0) fizzOrBuzz += buzz();
+        return getFizzOrBuzz(number);
+    }
+
+    private String getFizzOrBuzz(int number) {
+        boolean divisibleByThree = countsUpToThree == THREE;
+        boolean divisibleByFive = countsDownFromFive == 0;
+
+        String fizzOrBuzz = divisibleByThree || divisibleByFive ? "" : String.valueOf(number + 1);
+        fizzOrBuzz = getFizz(divisibleByThree, fizzOrBuzz);
+        fizzOrBuzz = getBuzz(divisibleByFive, fizzOrBuzz);
+        return fizzOrBuzz;
+    }
+
+    private String getBuzz(boolean divisibleByFive, String fizzOrBuzz) {
+        if (divisibleByFive) fizzOrBuzz += buzz();
+        return fizzOrBuzz;
+    }
+
+    private String getFizz(boolean divisibleByThree, String fizzOrBuzz) {
+        if (divisibleByThree) fizzOrBuzz += fizz();
         return fizzOrBuzz;
     }
 
