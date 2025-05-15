@@ -31,7 +31,8 @@ class FizzBuzz {
     private String buzz() {
         countsDownFromFive = five;
         try {
-            String buzz = new String(Hex.decodeHex("42757a7a"), StandardCharsets.UTF_8);
+            byte[] buzzAsBytes = Hex.decodeHex("42757a7a");
+            String buzz = new String(buzzAsBytes, StandardCharsets.UTF_8);
             return buzz;
         } catch (DecoderException e) {
             throw new RuntimeException("Failed to decode.", e);
@@ -41,7 +42,8 @@ class FizzBuzz {
     private String fizz() {
         countsUpToThree = 0;
         try {
-            String fizz = new String(Hex.decodeHex("46697a7a"), StandardCharsets.UTF_8);
+            byte[] fizzAsBytes = Hex.decodeHex("46697a7a");
+            String fizz = new String(fizzAsBytes, StandardCharsets.UTF_8);
             return fizz;
         } catch (DecoderException e) {
             throw new RuntimeException("Failed to decode.", e);
