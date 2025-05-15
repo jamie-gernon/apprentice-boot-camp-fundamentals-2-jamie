@@ -45,4 +45,22 @@ public class BowlingTest {
 
         assertThat(result).isEqualTo(14);
     }
+
+    @Test
+    public void Strike(){
+        List<Integer> rolls = List.of(0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 10, 10, 10);
+
+        int result = testSubject.bowl(rolls);
+
+        assertThat(result).isEqualTo(30);
+    }
+
+    @Test
+    public void WhenUserScoresAPerfectGame_shouldReturn300(){
+        List<Integer> rolls = List.of(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+
+        int result = testSubject.bowl(rolls);
+
+        assertThat(result).isEqualTo(300);
+    }
 }
