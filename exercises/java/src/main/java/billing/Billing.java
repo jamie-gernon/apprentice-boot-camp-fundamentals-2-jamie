@@ -5,13 +5,17 @@ public class Billing {
     ProductBilling productBilling = new ProductBilling();
 
     public int bill(int numberOfAdverts, int numberOfProducts, CustomerType customerType) {
-        int advertsBill;
-        int productsBill;
+        int advertBill;
+        int productBill;
 
-        advertsBill = advertBilling.getBillForAdverts(numberOfAdverts, customerType);
+        advertBill = advertBilling.getBillForAdverts(numberOfAdverts, customerType);
 
-        productsBill = productBilling.getBillForProducts(numberOfAdverts, numberOfProducts);
+        productBill = productBilling.getBillForProducts(numberOfAdverts, numberOfProducts);
 
+        return getTotalBill(advertBill, productBill);
+    }
+
+    private static int getTotalBill(int advertsBill, int productsBill) {
         return advertsBill + productsBill;
     }
 }
